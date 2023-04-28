@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<link rel="stylesheet" href="SDGE1.css">
+<title>SDG&E Prototype</title>
+<body>
+
+  <header>
+    <h1 style="text-align: center; padding: 20px;">
+      <a href="http://www.sdsuproject.com/" style="color: black; font-size: 32px;">SDG&E Prototype</a>
+      <img height="35px" src="sdgelogo1.jpg" alt="">
+    </h1>
+  </header>
+  
+
+    <div class = "navigation">
+
+        <div><a href="http://www.sdsuproject.com">USAGE</a></div> 
+        <div><a href="http://www.sdsuproject.com">SAVINGS</a></div>
+        <div><a href="http://www.sdsuproject.com">HOME CONTROL</a></div>
+        <div><a href="http://www.sdsuproject.com">NOTIFICATIONS</a></div>
+
+    </div>
+
+    <div style=" width: 100%;" >
+
+      <h1 style="margin-left: 10px;">Energy Usage Calculator</h1>
+      <form>
+        <fieldset>
+          <legend>Appliances:</legend>
+          <label for="fridge">Fridge:</label>
+          <input type="checkbox" id="fridge" name="appliance" value="fridge"><br>
+          <label for="tv">TV:</label>
+          <input type="checkbox" id="tv" name="appliance" value="tv"><br>
+          <label for="hairdryer">Hair Dryer:</label>
+          <input type="checkbox" id="hairdryer" name="appliance" value="hairdryer"><br>
+          <label for="dishwasher">Dishwasher:</label>
+          <input type="checkbox" id="dishwasher" name="appliance" value="dishwasher"><br>
+          <label for="washer">Washing Machine:</label>
+          <input type="checkbox" id="washer" name="appliance" value="washer"><br>
+          <label for="dryer">Electric Dryer:</label>
+          <input type="checkbox" id="dryer" name="appliance" value="dryer"><br>
+          <label for="waterheater">Electric Water Heater:</label>
+          <input type="checkbox" id="waterheater" name="appliance" value="waterheater"><br>
+          <label for="cable">Cable Box:</label>
+          <input type="checkbox" id="cable" name="appliance" value="cable"><br>
+          <label for="console">Gaming Console:</label>
+          <input type="checkbox" id="console" name="appliance" value="console"><br>
+        </fieldset>
+        <fieldset>
+          <legend>Home sqft:</legend>
+          <label for="asqft">1000sqft</label>
+          <input type="checkbox" id="asqft" name="appliance" value="asqft"><br>
+          <label for="bsqft">2000 sqft</label>
+          <input type="checkbox" id="bsqft" name="appliance" value="bsqft"><br>
+          <label for="bsqft">3000 sqft</label>
+          <input type="checkbox" id="csqft" name="appliance" value="csqft"><br>
+          <label for="bsqft">4000 sqft</label>
+          <input type="checkbox" id="dsqft" name="appliance" value="dsqft"><br>
+          </fieldset>
+        <br>
+        <button type="button" onclick="calculateUsage()" style="margin-left: 10px;">Calculate</button>
+      </form>
+      <br>
+      <p id="usage" style="margin-left: 10px;"></p>
+      <p id="appusage" style="margin-left: 10px;"></p>
+    
+      <script>
+        function calculateUsage() {
+          var totalUsage = 0;
+          var appUsage = 0;
+          var checkboxes = document.getElementsByName("appliance");
+    
+          for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+              switch (checkboxes[i].value) {
+                case "fridge":
+                  appUsage += 60; // assuming 60 kWh for fridge
+                  break;
+                case "tv":
+                  appUsage += 5; // assuming 100 kWh for tv
+                  break;
+                case "hairdryer":
+                  appUsage += 5; // assuming 1200 kWh for hair dryer
+                  break;
+                case "washer":
+                  appUsage += 28; // assuming 1200 kWh for hair dryer
+                  break;
+                case "dryer":
+                  appUsage += 13; // assuming 1200 kWh for hair dryer
+                  break;
+                case "dishwasher":
+                  appUsage += 21; // assuming 1200 kWh for hair dryer
+                  break;
+                case "waterheater":
+                  appUsage += 400; // assuming 1200 kWh for hair dryer
+                  break;
+                case "cable":
+                  appUsage +=12; // assuming 1200 kWh for hair dryer
+                  break;
+                case "console":
+                  appUsage += 17; // assuming 1200 kWh for hair dryer
+                  break;
+                case "asqft":
+                  totalUsage += 880; // assuming 1200 kWh for hair dryer
+                  break;
+                case "bsqft":
+                  totalUsage += 1325; // assuming 1200 kWh for hair dryer
+                  break;
+                case "csqft":
+                  totalUsage += 1840; // assuming 1200 kWh for hair dryer
+                  break;
+                case "dsqft":
+                  totalUsage += 2200; // assuming 1200 kWh for hair dryer
+                  break;
+                // add cases for additional appliances as needed
+              }
+            }
+          }
+    
+          document.getElementById("appusage").innerHTML = "Energy Usage from Appliances: " + appUsage + " kWh";
+          document.getElementById("usage").innerHTML = "Average Energy Usage: " + totalUsage + " kWh";
+        }
+      </script>
+
+<footer >
+
+</footer>
+
+
+</head>
+</html>
