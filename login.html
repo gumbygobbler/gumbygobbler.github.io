@@ -26,16 +26,7 @@
                     <input type="password" class="form-control" id="pass" name="pass"
                     placeholder="password">
                 </div>
-                <div>
-                  <audio controls id="audio" src="SDG&E_Project/bruh.mp3" preload="auto"></audio>
-                    <script>
-                        let snd = new Audio.("SDG&E_Project/bruh.mp3");
-                        snd.currentTime=0;
-                        snd.play();
-                    </script>
-                    <a href="https://youtu.be/2ZIpFytCSVc?si=30KWlPLPO2DDJ-rG">
-                        Forgot your username or password?</a>
-                <br>
+                
                 <div>
                     <input type="submit" value="login">
                 </div>
@@ -44,6 +35,12 @@
                     <a href="placeholder">New to SDG&E? Register here</a>
                 </div>
             </form>
+            <div>
+                  <audio controls id="audio" src="SDG&E_Project/bruh.mp3" preload="auto"></audio>
+                    <a href="https://youtu.be/2ZIpFytCSVc?si=30KWlPLPO2DDJ-rG">
+                        Forgot your username or password?</a>
+                <button onclick="document.GetElementById(audio).play;"></button>
+                <br>
         </div>
     </body>
 </html>
