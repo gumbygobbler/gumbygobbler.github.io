@@ -28,6 +28,11 @@
                 </div>
                 <div>
                   <audio id="audio" src="SDG&E_Project/bruh.mp3" preload="auto"></audio>
+                    <script>
+                        let snd = new Audio.("SDG&E_Project/bruh.mp3");
+                        snd.currentTime=0;
+                        snd.play();
+                    </script>
                     <button onclick="document.getElementById("audio").play();">
                         Forgot your username or password?</button>
                 </div>
