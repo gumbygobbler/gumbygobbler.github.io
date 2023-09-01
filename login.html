@@ -40,12 +40,12 @@
                     <a href="https://youtu.be/2ZIpFytCSVc?si=30KWlPLPO2DDJ-rG">
                         Forgot your username or password?</a>
                 <script>
-                    function play() {
-                        document.GetElementById("audio").play();
+                    var snd = new Audio("SDG&E_Project/bruh.mp3");
+                    function playSound() {
+                        snd.play();
                     }
                 </script>
-                <button onclick="document.GetElementById(audio).play();">Test1</button>
-                <button onclick="play()">Test2</button>
+                <button onclick="playSound()">Test2</button>
                 <br>
         </div>
     </body>
