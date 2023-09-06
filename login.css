@@ -1,0 +1,17 @@
+body {
+    background-color: #3d6eb2;
+}
+#loginbox {
+    background-color: white;
+    border-radius: 10px;
+    width: 600px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px 50px 50px;
+
+}
+
+h3 {
+    text-align:center;
+}
+
