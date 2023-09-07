@@ -11,6 +11,11 @@ body {
 
 }
 
+#loginlogo {
+    margin:auto;
+    scale:0.5x;
+}
+
 h3 {
     text-align:center;
 }
