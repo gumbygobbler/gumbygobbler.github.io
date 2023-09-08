@@ -4,7 +4,7 @@ body {
 #loginbox {
     background-color: white;
     border-radius: 10px;
-    width: 600px;
+    border-width: 600px;
     margin: auto;
     margin-top: 100px;
     margin-left: 30px;
