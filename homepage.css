@@ -145,9 +145,10 @@ footer{
 
 }
 
+/*don't think the select can be styled*/
 select{
     background-color: rgb(44, 141, 206);
-    color: white;
+    color: red;
     text-align: center;
     font-size: 14px;
     padding: 5px;
