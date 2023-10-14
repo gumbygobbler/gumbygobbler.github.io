@@ -17,7 +17,7 @@ header {
     border-radius: 10px;
 }
 
-.navigation {
+div.navigation {
 
     background-color: #3d6eb2;
     border-radius: 10px;
@@ -29,7 +29,7 @@ header {
     top: 0;
 }
 
-.navigation div {
+div.navigation div {
 
     width: 25%;
     text-align: center;
@@ -37,26 +37,22 @@ header {
     color: rgba(241, 232, 232, 0.861);
 }
 
-.navigation div:hover{
+div.navigation div:hover{
     
     color: white;
     font-size: 107%;
 }
 
-.navigation ::after{
+div.navigation ::after{
     content: "";
     display: table;
     clear: both;
 }
 
-.bluebar {
-    display: flex;
-    background-color: #1b457e;
-}
 
-.loginbox {
+div.login {
     margin: 20px 50px;
-    
+    height: 280px;
     max-width: 300px;
     border-radius: 5px;
     background-color: white;
@@ -66,18 +62,14 @@ header {
     text-align: center;
     color: #666366;
     padding: 0 20px;
-    padding-bottom: 15px;
-    
+    padding-bottom: 40px;
     
 }
 
-.savemoneybox {
-    padding: 30px;
-}
-
-.loginbutton, .learn{
+a.loginbutton, a.learn{
+  
     font-size: 16px;
-    padding: 10px 10px;
+    padding: 10px 70px;
     color: white;
     background: #1b457e;
     border-radius: 4px 4px 4px 4px;
@@ -91,53 +83,72 @@ a.loginbutton:hover, a.learn:hover{
     background: #568ddb;
 }
 
-.login a{
+div.login > div a{
     color: #1b457e;
     display: block;
 }
-.login a:hover{
+div.login > div a:hover{
     color: #568ddb;
 }
 
-.mask {
+div.mask {
    
     border: solid;
     width: 66%;
 }
 
+a.devicebutton{
 
-.info {
+    font-size: 16px;
+    padding: 10px 70px;
+    color: white;
+    background: #1b457e;
+    border-radius: 4px 4px 4px 4px;
+    text-decoration: none;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  
+  }
+  
+  a.devicebutton:hover, a.learn:hover{
+    background: #568ddb;
+  }
+
+div.info {
     display: flex;
+    height: 250px;
     background-color: rgb(44, 141, 206);
-    padding-top: 20px;
+    margin-top: px;
     text-align: center;
     color: aliceblue ;
     overflow: hidden;
     border-radius: 10px;
-    padding-bottom: 20px;
+    
 }
 
 
-.column {
+
+div.column {
     color: #666366;
     text-align: center;
-    padding-top: 30px;
-    padding-bottom:90px;
-    padding-right: 10px;
-    padding-left:10px;
+    height: 400px;
+    margin: 30px 5px;
     background-color: white;
     border-radius: 9px;
 }
 
-.column .img{
+div.column img{
     border-radius: 8px;
 }
 
-.column ::after{
+div.column ::after{
     content: "";
     display: table;
     clear: both;
 }
+
+
 
 footer{
     height: 200px;
@@ -145,22 +156,7 @@ footer{
 
 }
 
-/*don't think the select can be styled*/
-select{
-    background-color: rgb(44, 141, 206);
-    color: red;
-    text-align: center;
-    font-size: 14px;
-    padding: 5px;
-    border-color: rgb(44, 141, 206);
-}
-  
-select:hover{
-    cursor: pointer;
-}
-  
-a {
-    font-size: 14px;
-    color: white;
-    text-decoration: none;
+.testContainer {
+    border: 5px solid blue;
+    background-color: white;
 }
