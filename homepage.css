@@ -54,7 +54,8 @@ header {
 
 .loginbox {
     margin: 20px 50px;
-
+    display: flex;
+    flex-flow: column wrap;
     max-width: 300px;
     border-radius: 5px;
     background-color: white;
