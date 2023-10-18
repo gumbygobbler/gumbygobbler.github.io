@@ -13,12 +13,12 @@ const firstnameIndex = 2;
 //getElement methods.
 //for ids, use #
 
-fetch('http://localhost:8000/')
+fetch('https://www.sdsuproject.com/')
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        firstName = Object.values(data[0])[firstnameIndex];
-        firstBox.innerHTML = firstName;
+        //firstName = Object.values(data[0])[firstnameIndex];
+        //firstBox.innerHTML = firstName;
     })
     .catch(err => console.log(err))
 
