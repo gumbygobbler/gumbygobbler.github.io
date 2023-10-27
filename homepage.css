@@ -163,3 +163,68 @@ a {
     color: white;
     text-decoration: none;
 }
+
+.body2 {
+    
+    height: 600px;
+    background-color: white;
+    margin: 0px 20%;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+    border-radius: 10px;
+    padding-bottom: 100px;
+    
+}
+
+.title {
+    height: 30%;
+    color: #1b457e; 
+    font-size: 50px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+}
+
+.row {
+ 
+    display: flex;
+    height: 20%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    border-top: solid;
+    border-color: rgb(180, 180, 180);
+    margin: 0% 15%;
+
+}
+
+.row form {
+    flex: 1;
+    padding: 0, 10%;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.row form:focus {
+    border: 3px solid #555;
+}
+
+.row label {
+    color: #1b457e;
+    
+}
+
+.button2 {
+    background-color: #008CBA; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-left: 65%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+
+}

@@ -16,7 +16,7 @@ header {
     margin-bottom: 50px;
 }
 
-div.body {
+div.body2 {
     
     height: 600px;
     background-color: white;
@@ -67,7 +67,7 @@ div.row label {
     
 }
 
-.button {
+.button2 {
     background-color: #008CBA; /* Green */
     border: none;
     color: white;
