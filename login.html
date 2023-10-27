@@ -69,5 +69,32 @@
                 <button onclick="playSound()">Forgot your username/password?</button>
                 <br>
         </div>
+
+        <div>
+            <span id="login_failed" style="color: red; text-align: center; font: 30px; padding-top: 30px;"></span>
+        </div>
     </body>
+    <script type="text/javascript">
+        var login_success = false;  /* set this to true if the login was a success */
+        
+        if(login_success == false)
+        {
+            document.getElementById("login_failed").innerHTML = "Login Failed.";
+        }
+        else
+        {
+            window.location = "http://www.sdsuproject.com//login_success.html"; 
+        }
+        </script>
+    <!--
+    <script>
+        const user = this.Student.find(student => student.email === emailInput && student.password === passInput);
+        if (user) {
+            // we have user in database
+            console.log("successful login);
+        }
+        else {
+            console.log("login failed"
+        }
+    </script>-->
 </html>
