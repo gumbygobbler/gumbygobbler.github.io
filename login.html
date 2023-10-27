@@ -9,24 +9,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="homepage.css">
     <link rel="icon" href="SDG&E_Project/sdgelogo1.jpg">
 </head>
     <body>
-        <div class="container-sm mt-5" id="loginbox">
-            <a href="http://www.sdsuproject.com"><image id="loginlogo" src="SDG&E_Project/sdgelogo1.jpg" alt="SDG&E Logo"></image></a>
+
+        <header  >
+            <h1 class="head" >
+                <span style="color: #1b457e;"> SDGE</span>
+                <span style="color: rgb(193, 193, 6);">Energy</span>
+                <span style="color: rgb(3, 115, 3);" >Management</span>
+                <img height="40px"   src="SDG&E_Project/sdgelogo1.jpg" alt="">
+            </h1>
+        </header>
+    
+        <div class = "navigation">
+            <div><a href="https://www.sdsuproject.com">Home</a></div>
+            <div><a href="https://www.sdsuproject.com/SDGEusage">Energy Usage</a></div>
+            <div><a href="https://www.sdsuproject.com/itemcontrols">Items Controls</a></div>
+            <div><a href="https://www.sdsuproject.com/Savings">Savings</a></div>
+            <div><a href="https://www.sdsuproject.com/UserStats">User Stats</a></div>
+        </div>
+    
+        <div class="container-sm mt-5" id="loginbox2">
+            <a href="http://www.sdsuproject.com"><image id="loginlogo2" src="SDG&E_Project/sdgelogo1.jpg" alt="SDG&E Logo"></image></a>
             <br>
-            <h3 style="color: rgb(17, 58, 94)">Login to your SDG&E Account</h3>
+            <h3 style="color: rgb(17, 58, 94); text-align: center; padding-bottom: 20px;">Login to your SDG&E Account</h3>
             
             <form>
-                <div>
-                    <label for="username">username</label>
+                <div style="padding-bottom: 30px;">
+                    <label for="username" style="padding-bottom: 20px;">username</label>
                     <input type="text" class="form-control" id="username" name="username"
                     placeholder="username">
 
                 </div>
-                <div>
-                    <label for="pass">password</label>
+                <div style="padding-bottom: 20px;">
+                    <label for="pass" style="padding-bottom: 20px;">password</label>
                     <input type="password" class="form-control" id="pass" name="pass"
                     placeholder="password">
                 </div>
