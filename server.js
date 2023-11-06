@@ -8,42 +8,40 @@ app.use(cors());
 const uri = "mongodb+srv://devAccess:cantLoseThisAgain@clustersdge.td7vftc.mongodb.net/?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri);
+let userID = "203";
+const homes = client.db("Homes");
+//will eventually need to read things from loginServer once this or that is ported to other
 
-
-
-
-async function run() {
-    try {
-    
-        // Get the database and collection on which to run the operation
-        const homes = client.db("Homes");
-        const users = homes.collection("Users");
-        // Query for a movie that has the title 'The Room'
-        let specUser = await users.find({dataid: "203"}).toArray();
-        // Print the document returned by findOne()
-        
-        const dataid = 5;
-        specUser = homes.collection(Object.values(specUser[0])[dataid]);
-        let result = await specUser.find({dataid: "203"}).toArray();
-        for await (const doc of result) {
-            console.log(doc);
-          }
-        return result;
-      } finally {
-        await client.close();
+    async function queryUser(userID) {
+      try {
+  
+          specUser = homes.collection(userID);
+          let result = await specUser.find().toArray();
+          // for await (const doc of result) {
+          //     console.log(doc);
+          //   }
+          return result;
+        } finally {
+          await client.close();
+        }
       }
-    }
-
-    
     
     async function main() {
        
       
-      let userApps = await run().catch(console.dir);
-      console.log(userApps);
-      app.get('/', function(req, res) {
+  let userApps = await queryUser(userID).catch(console.dir);
+      // dataID = Object.values(userApps[0])[5];
+      
+      // let userData = await queryData(dataID).catch(console.dir);
+      
+      app.get('/data', function(req, res) {
         res.send(userApps);
       });
+
+      // app.get('/data', (req, res) => {
+      //   res.send(userData);
+      // });
+
       app.post('/', function(req, res) {
         const login = req.body;
         console.log(login);
@@ -56,23 +54,6 @@ async function run() {
 
     }
     main();
-    //THE START OF EXPRESS STUFF
-    //app.METHOD(PATH, HANDLER)
-    //app.get();
-    //gets data from a certain resource or path
-    //app.post();
-    //adds data to a certain resource or path
-    //app.put();
-    //edits data from a certain resource or path
-    //app.delete();
-    //deletes data from a certain resource or path
-    //PATH on server, which is defined by us
-    //HANDLER is a callback function that gets executed when we visit the path
-
-// app.get('/', function(req, res) {
-//   res.json('testing');
-// })
-
 
 
 
