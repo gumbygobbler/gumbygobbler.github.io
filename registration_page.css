@@ -18,14 +18,15 @@ header {
 
 div.body2 {
     
-    height: 600px;
+    height: 500px;
     background-color: white;
     margin: 0px 10%;
+    margin-top: 40px;
     text-align: center;
     color: black;
     overflow: hidden;
     border-radius: 10px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
     
 }
 
