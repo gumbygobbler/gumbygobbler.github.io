@@ -3,36 +3,36 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="SDGEusage.css">
 <title>SDG&E Prototype</title>
     <link rel="icon" href="SDG&E_Project/sdgelogo1.jpg"></head>
-<body>
 
-<header>
-    <h1 style="text-align: center; padding: 20px;">
-      <a href="http://www.sdsuproject.com/">
-        <h1 class="head" >
-            <span style="color: #1b457e;"> SDGE</span>
-            <span style="color: rgb(193, 193, 6);">Energy</span>
-            <span style="color: rgb(3, 115, 3);" >Management</span>
-            <img height="40px"   src="SDG&E_Project/sdgelogo1.jpg" alt=""></h1>
-        </a>
+<link rel="stylesheet" href="homepage.css">
+<body>
+    
+  <header  >
+    <h1 class="head" >
+      <span style="color: #1b457e;"> SDGE</span>
+      <span style="color: rgb(193, 193, 6);">Energy</span>
+      <span style="color: rgb(3, 115, 3);" >Management</span>
+      <img height="40px"   src="SDG&E_Project/sdgelogo1.jpg" alt="">
     </h1>
   </header>
-  
-
+    
     <div class = "navigation">
+            <div><a href="https://www.sdsuproject.com">Home</a></div>
+            <div><a href="https://www.sdsuproject.com/SDGEusage">Energy Usage</a></div>
+            <div><a href="https://www.sdsuproject.com/itemcontrols">Items Controls</a></div>
+            <div><a href="https://www.sdsuproject.com/Savings">Savings</a></div>
+            <div><a href="https://www.sdsuproject.com/UserStats">User Stats</a></div>
+        </div>
+    
 
-        <div><a href="http://www.sdsuproject.com">USAGE</a></div> 
-        <div><a href="http://www.sdsuproject.com">SAVINGS</a></div>
-        <div><a href="http://www.sdsuproject.com">HOME CONTROL</a></div>
-        <div><a href="http://www.sdsuproject.com">NOTIFICATIONS</a></div>
-
-    </div>
-
-    <div style=" width: 100%;" >
-
-      <h1 style="margin-left: 10px;">Energy Usage Calculator</h1>
+      
+      <div style="background-color: white; 
+      display: flex; flex-flow: column wrap;">
+        <div style="width: 100%;">
+      <h1 style="text-align: center;">Energy Usage Calculator</h1>
+          </div>
       <form>
         <fieldset>
           <legend>Appliances:</legend>
@@ -72,6 +72,7 @@
       <br>
       <p id="usage" style="margin-left: 10px;"></p>
       <p id="appusage" style="margin-left: 10px;"></p>
+    </div>
     
       <script>
         function calculateUsage() {

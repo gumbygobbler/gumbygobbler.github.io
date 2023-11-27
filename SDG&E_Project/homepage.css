@@ -17,7 +17,7 @@ header {
     border-radius: 10px;
 }
 
-div.navigation {
+.navigation {
 
     background-color: #3d6eb2;
     border-radius: 10px;
@@ -29,7 +29,7 @@ div.navigation {
     top: 0;
 }
 
-div.navigation div {
+.navigation div {
 
     width: 25%;
     text-align: center;
@@ -37,20 +37,24 @@ div.navigation div {
     color: rgba(241, 232, 232, 0.861);
 }
 
-div.navigation div:hover{
+.navigation div:hover{
     
     color: white;
     font-size: 107%;
 }
 
-div.navigation ::after{
+.navigation ::after{
     content: "";
     display: table;
     clear: both;
 }
 
+.bluebar {
+    display: flex;
+    background-color: #1b457e;
+}
 
-div.login {
+.login {
     margin: 20px 50px;
     height: 280px;
     max-width: 300px;

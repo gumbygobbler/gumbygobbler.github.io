@@ -1,4 +1,253 @@
 
+body {
+
+    background-color: #1b457e;
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+header {
+
+    background-color: white;
+    text-align: center;  
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.navigation {
+
+    background-color: #3d6eb2;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+
+.navigation div {
+
+    width: 25%;
+    text-align: center;
+    display: inline;
+    color: rgba(241, 232, 232, 0.861);
+}
+
+.navigation div:hover{
+
+    color: white;
+    font-size: 107%;
+}
+
+.navigation ::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.bluebar {
+    display: flex;
+    background-color: #1b457e;
+}
+
+.loginbox {
+    margin: 20px 50px;
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 300px;
+    border-radius: 5px;
+    background-color: white;
+    min-width: 150px;
+
+    overflow: hidden;
+    text-align: center;
+    color: #666366;
+    padding: 0 20px;
+    padding-bottom: 15px;
+
+
+}
+
+.savemoneybox {
+    padding: 30px;
+}
+
+.loginbutton, .learn{
+    font-size: 16px;
+    padding: 10px 10px;
+    color: white;
+    background: #1b457e;
+    border-radius: 4px 4px 4px 4px;
+    text-decoration: none;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+a.loginbutton:hover, a.learn:hover{
+    background: #568ddb;
+}
+
+.login a{
+    color: #1b457e;
+    display: block;
+}
+.login a:hover{
+    color: #568ddb;
+}
+
+.mask {
+
+    border: solid;
+    width: 66%;
+}
+
+
+.info {
+    display: flex;
+    background-color: rgb(44, 141, 206);
+    padding-top: 20px;
+    text-align: center;
+    color: aliceblue ;
+    overflow: hidden;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+
+.column {
+    color: #666366;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom:90px;
+    padding-right: 10px;
+    padding-left:10px;
+    background-color: white;
+    border-radius: 9px;
+}
+
+.column .img{
+    border-radius: 8px;
+}
+
+.column ::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer{
+    height: 200px;
+
+
+}
+
+/*don't think the select can be styled*/
+select{
+    background-color: rgb(44, 141, 206);
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    border-color: rgb(44, 141, 206);
+}
+
+select:hover{
+    cursor: pointer;
+}
+
+a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+
+.body2 {
+    
+    height: 600px;
+    background-color: white;
+    margin: 0px 20%;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+    border-radius: 10px;
+    padding-bottom: 100px;
+    
+}
+
+.title {
+    height: 30%;
+    color: #1b457e; 
+    font-size: 50px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+}
+
+.row {
+ 
+    display: flex;
+    height: 20%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    border-top: solid;
+    border-color: rgb(180, 180, 180);
+    margin: 0% 15%;
+
+}
+
+.row form {
+    flex: 1;
+    padding: 0, 10%;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.row form:focus {
+    border: 3px solid #555;
+}
+
+.row label {
+    color: #1b457e;
+    
+}
+
+.button2 {
+    background-color: #008CBA; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-left: 65%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+
+}
+
+#loginbox2 {
+    background-color: white;
+    border-radius: 10px;
+    width: max(50%, 450px);
+    margin: auto;
+    margin-top: 5%;
+    padding: 2% 5% 5%;
+
+}
+
+#loginlogo2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+}
+=======
+
 
 body {
 
@@ -157,3 +406,4 @@ footer{
 
 
 }
+

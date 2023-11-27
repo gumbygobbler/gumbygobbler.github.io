@@ -9,40 +9,92 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="icon" href="SDG&E_Project/sdgelogo1.jpg">
 </head>
     <body>
-        <div class="container-sm mt-5" id="loginbox">
-            <h3 style="color: rgb(17, 58, 94)">Login to your SDGE Account</h3>
+
+        <header  >
+            <h1 class="head" >
+                <span style="color: #1b457e;"> SDGE</span>
+                <span style="color: rgb(193, 193, 6);">Energy</span>
+                <span style="color: rgb(3, 115, 3);" >Management</span>
+                <img height="40px"   src="SDG&E_Project/sdgelogo1.jpg" alt="">
+            </h1>
+        </header>
+    
+        <div class = "navigation">
+            <div><a href="https://www.sdsuproject.com">Home</a></div>
+            <div><a href="https://www.sdsuproject.com/SDGEusage">Energy Usage</a></div>
+            <div><a href="https://www.sdsuproject.com/itemcontrols">Items Controls</a></div>
+            <div><a href="https://www.sdsuproject.com/Savings">Savings</a></div>
+            <div><a href="https://www.sdsuproject.com/UserStats">User Stats</a></div>
+        </div>
+    
+        <div class="container-sm mt-5" id="loginbox2">
+            <a href="http://www.sdsuproject.com"><image id="loginlogo2" src="SDG&E_Project/sdgelogo1.jpg" alt="SDG&E Logo"></image></a>
+            <br>
+            <h3 style="color: rgb(17, 58, 94); text-align: center; padding-bottom: 20px;">Login to your SDG&E Account</h3>
             
             <form>
-                <div>
-                    <label for="username">username</label>
+                <div style="padding-bottom: 30px;">
+                    <label for="username" style="padding-bottom: 20px;">username</label>
                     <input type="text" class="form-control" id="username" name="username"
                     placeholder="username">
 
                 </div>
-                <div>
-                    <label for="pass">password</label>
+                <div style="padding-bottom: 20px;">
+                    <label for="pass" style="padding-bottom: 20px;">password</label>
                     <input type="password" class="form-control" id="pass" name="pass"
                     placeholder="password">
-                </div>
-                <div>
-                    <script>
-                        function play() {
-                        var audio = document.getElementById("audio");
-                        audio.play();
-                      }
-                      </script>
-                    <button onclick="play()">
-                        Forgot your username or password?</button>
-                    <audio id="audio"><source src="http://www.sdsuproject.com/bruh.mp3"></audio>
-
                 </div>
                 <br>
                 <div>
                     <input type="submit" value="login">
                 </div>
+                <br>
+                <div>
+                    <a href="http://www.sdsuproject.com/registration">New to SDG&E? Register here</a>
+                </div>
             </form>
+            <br>
+            <div>
+                  <audio id="audio" src="SDG&E_Project/bruh.mp3" preload="auto"></audio>
+                <script>
+                    var snd = new Audio("SDG&E_Project/bruh.mp3");
+                    function playSound() {
+                        snd.play();
+                    }
+                </script>
+                <button onclick="playSound()">Forgot your username/password?</button>
+                <br>
+        </div>
+
+        <div>
+            <span id="login_failed" style="color: red; text-align: center; font: 30px; padding-top: 30px;"></span>
         </div>
     </body>
+    <script type="text/javascript">
+        var login_success = false;  /* set this to true if the login was a success */
+        
+        if(login_success == false)
+        {
+            document.getElementById("login_failed").innerHTML = "Login Failed.";
+        }
+        else
+        {
+            window.location = "http://www.sdsuproject.com//login_success.html"; 
+        }
+        </script>
+    <!--
+    <script>
+        const user = this.Student.find(student => student.email === emailInput && student.password === passInput);
+        if (user) {
+            // we have user in database
+            console.log("successful login);
+        }
+        else {
+            console.log("login failed"
+        }
+    </script>-->
 </html>
