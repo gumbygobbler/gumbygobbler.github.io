@@ -246,7 +246,6 @@ a {
     margin-right: auto;
     width: 50px;
 }
-=======
 
 
 body {
@@ -407,3 +406,6 @@ footer{
 
 }
 
+.firstbox .newChart {
+    height: 80px;
+}

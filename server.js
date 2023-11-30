@@ -199,7 +199,6 @@ async function queryUser(userID) {
       res.status(200).send({status : 'recieved'});
     })
     console.log("listening on port 8000");
-    console.log(Object.values(rawData[1]))
     app.listen(PORT);
 
     }
