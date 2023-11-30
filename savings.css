@@ -67,7 +67,7 @@ a {
     justify-content: center;
     align-items: center;
 
-    padding: 10px;
+    padding: 70px 10px;
     background-color: rgb(44, 141, 206);
     color: aliceblue ;
     border-radius: 10px;
@@ -89,6 +89,9 @@ a {
     background-color:aliceblue ;
     margin: 2%;
     border-radius: 10px;
+    color: #666366;
+    font-size: 20px;
+    padding: 25px
 
     
     
