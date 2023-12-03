@@ -402,10 +402,9 @@ div.column ::after{
 
 footer{
     height: 200px;
-
-
 }
 
-.firstbox .newChart {
-    height: 80px;
+#firstbox {
+    height: 300px;
+    max-width: 80%;
 }
