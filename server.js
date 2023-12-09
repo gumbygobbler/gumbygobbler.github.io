@@ -13,7 +13,7 @@ const homes = client.db("Homes");
 //will eventually need to read things from loginServer once this or that is ported to other
 
 const minInDay = 96;
-const dayInMonth = [-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+const dayInMonth = [-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 30]
 //have index start at one essentially
 
 //takes data, sends array of daily averages
@@ -68,6 +68,7 @@ function getWeeklyAverages(dataArray) {
           
       }
   }
+  
   return holdingArray;
 }
 
@@ -149,6 +150,10 @@ function sliceDataByMonth(applianceDailyValues) {
   return applianceDailyValues.slice(applianceDailyValues.length - 31);
 }
 
+function sliceDataByHalfYear(applianceWeeklyValues) {
+  return applianceWeeklyValues.slice(applianceWeeklyValues.length - 26);
+}
+
 //gets dates
 function getDates(dbdoc) {
   let dateArray = [];
@@ -196,6 +201,8 @@ function makeDataPackage(appliance) {
 
   dailyAverages = sliceDataByMonth(dailyAverages);
   dailyPeaks = sliceDataByMonth(dailyPeaks);
+  weeklyAverages = sliceDataByHalfYear(weeklyAverages);
+  weeklyPeaks = sliceDataByHalfYear(weeklyPeaks);
 
 
   return ([dailyData, dailyAverages, dailyPeaks, weeklyAverages, weeklyPeaks, monthlyAverages, monthlyPeaks]);
@@ -216,6 +223,11 @@ function getApplianceTypes(dbdoc) {
   return Object.keys(dbdoc[1]).slice(3);
 }
 
+//get name of user
+function getName(dbdoc) {
+  const name = Object.values(dbdoc[0])[1] + " " + Object.values(dbdoc[0])[2];
+  return name;
+}
 //runs the top level program
 async function main() {   
   //after login, have a loading wheel while stuff loads
@@ -226,6 +238,7 @@ async function main() {
   let dataPackages = [];
   let dates = getDates(rawData);
   let times = getTimes(rawData);
+  let username = getName(rawData);
   
   for (let i = 0; i < applianceTypes.length; ++i) {
   
@@ -238,9 +251,9 @@ async function main() {
   
   app.get('/data', function(req, res) {
   
-    res.send([applianceTypes, dates, times, dataPackages])
+    res.send([username, applianceTypes, dates, times, dataPackages])
     //at this point, data sent is like this:
-    //[[appliance types], [dates], times], [data Packages]]
+    //[name, [appliance types], [dates], times], [data Packages]]
     // in [data Packages], [[data Package], [data Package], [data Package], ...]
     // in [data Package], [[DD], [DA], [DP], [WA], [WP], [MA], [MP]]
     // data package is aligned with order of appliance types

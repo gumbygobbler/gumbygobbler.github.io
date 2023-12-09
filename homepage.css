@@ -350,7 +350,6 @@ div.info {
     display: flex;
     height: 250px;
     background-color: rgb(44, 141, 206);
-    margin-top: px;
     text-align: center;
     color: aliceblue ;
     overflow: hidden;
@@ -407,4 +406,18 @@ footer{
 #firstbox {
     height: 300px;
     max-width: 80%;
+}
+
+#statsWelcome {
+    text-align: center;
+    border-radius: 10px;
+    background-color:#568ddb;
+    color:aliceblue;
+}
+
+.chartSelector {
+    display: inline;
+    color:aliceblue;
+    background-color: #3d6eb2;
+    border-radius: 5px;
 }
