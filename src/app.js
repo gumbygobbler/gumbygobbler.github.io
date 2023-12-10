@@ -181,15 +181,6 @@ function readableName(dataName) { //weird issues with how theyre named in mongod
     return readableNames[i];
 }
 
-fetch('http://localhost:8000/')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        firstName = Object.values(data[0])[firstnameIndex];
-        firstBox.innerHTML = firstName;
-    })
-    .catch(err => console.log(err))
-
 fetch('http://localhost:8000/data')
     .then(response => response.json())
     .then(data => {
@@ -205,7 +196,7 @@ fetch('http://localhost:8000/data')
         document.getElementById("userName").innerHTML = "Welcome, " + username;
         
         for (let i = 0; i < (applianceType.length) - 2; ++i) {
-            let chart = createNewChart(i, 'firstbox', times, dataPackages[i][0], readableName(applianceType[i]), "Usage today")
+            let chart = createNewChart(i, 'firstbox', times, dataPackages[i][0].slice(dataPackages[i][0].length - 96), readableName(applianceType[i]), "Usage today")
             //document.getElementById("select" + i).setAttribute("onchange", function a(){changeChartValues(chart, i, dates, times, dataPackages, readableName(applianceType[i]));})
             document.getElementById("select" + i).onchange = function(){changeChartValues(chart, i, dates, times, dataPackages, readableName(applianceType[i]));};
             console.log("just accessed select" + i);

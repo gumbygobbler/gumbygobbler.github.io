@@ -1,0 +1,122 @@
+body {
+
+    background-color: #1b457e;
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+header {
+
+    background-color: white;
+    text-align: center;  
+    padding: 20px;
+    border-radius: 10px;
+}
+
+a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+  
+
+.navigation {
+
+    background-color: #3d6eb2;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+
+.navigation div {
+
+    width: 25%;
+    text-align: center;
+    display: inline;
+    color: rgba(241, 232, 232, 0.861);
+}
+
+.navigation div:hover{
+
+    color: white;
+    font-size: 107%;
+}
+
+.navigation ::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.title {
+    width: 100%; 
+    color: aliceblue ;
+    text-align: center;
+    font-size: 55px;
+   
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 70px 10px;
+    background-color: rgb(44, 141, 206);
+    color: aliceblue ;
+    border-radius: 10px;
+
+}
+
+.row {
+ 
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.column {
+
+    width: 50%;
+    background-color:aliceblue ;
+    margin: 2%;
+    border-radius: 10px;
+    color: #666366;
+    font-size: 20px;
+    padding: 25px
+
+    
+    
+}
+
+.generalInfo {
+    background-color:aliceblue ;
+    margin: 2% 2%;
+    border-radius: 10px;
+    color: #666366;
+    font-size: 20px;
+    padding: 25px
+}
+footer {
+    height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

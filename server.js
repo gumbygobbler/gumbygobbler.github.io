@@ -154,6 +154,10 @@ function sliceDataByHalfYear(applianceWeeklyValues) {
   return applianceWeeklyValues.slice(applianceWeeklyValues.length - 26);
 }
 
+function getMonthOfData(appliance) {
+  return appliance.slice(appliance.length - 3000);
+}
+
 //gets dates
 function getDates(dbdoc) {
   let dateArray = [];
@@ -198,6 +202,7 @@ function makeDataPackage(appliance) {
   let monthlyAverages = getMonthlyAverages(dailyAverages);
   let monthlyPeaks = getMonthlyPeaks(dailyAverages);
   let dailyData = getDailyData(appliance);
+  let monthlyData = getMonthOfData(appliance);
 
   dailyAverages = sliceDataByMonth(dailyAverages);
   dailyPeaks = sliceDataByMonth(dailyPeaks);
@@ -205,7 +210,11 @@ function makeDataPackage(appliance) {
   weeklyPeaks = sliceDataByHalfYear(weeklyPeaks);
 
 
-  return ([dailyData, dailyAverages, dailyPeaks, weeklyAverages, weeklyPeaks, monthlyAverages, monthlyPeaks]);
+  return ([dailyData, dailyAverages, dailyPeaks, weeklyAverages, weeklyPeaks, monthlyAverages, monthlyPeaks, monthlyData]);
+}
+
+function makeDataPackage2(appliance) {
+
 }
 
 //extracts data from the document sent by Mongodb into a more usable form
@@ -230,21 +239,25 @@ function getName(dbdoc) {
 }
 //runs the top level program
 async function main() {   
-  //after login, have a loading wheel while stuff loads
+  
   let rawData = await queryUser(userID).catch(console.dir);
 
   
   let applianceTypes = getApplianceTypes(rawData);
   let dataPackages = [];
+  let savingsData = [];
   let dates = getDates(rawData);
   let times = getTimes(rawData);
   let username = getName(rawData);
+  
   
   for (let i = 0; i < applianceTypes.length; ++i) {
   
     let applianceValues = parseData(rawData, i + 3);
     let dataPackage = makeDataPackage(applianceValues);
+    let monthData = getMonthOfData(applianceValues);
     dataPackages.push(dataPackage);
+    savingsData.push(monthData);
   }
 
   console.log("data compiled")
@@ -253,16 +266,16 @@ async function main() {
   
     res.send([username, applianceTypes, dates, times, dataPackages])
     //at this point, data sent is like this:
-    //[name, [appliance types], [dates], times], [data Packages]]
+    //[name, [appliance types], [dates], [times], [data Packages]]
     // in [data Packages], [[data Package], [data Package], [data Package], ...]
-    // in [data Package], [[DD], [DA], [DP], [WA], [WP], [MA], [MP]]
+    // in [data Package], [[DD], [DA], [DP], [WA], [WP], [MA], [MP], [MD]]
     // data package is aligned with order of appliance types
     // to access 1 appliance type: [0][i]
     // to access 1 specific data package: [1][i]
     // to access 1 specific stack of data: [1][i][j]
     // to access 1 specific data point: [1][i][j][k]
   });
-
+  
   app.post('/', function(req, res) {
     const login = req.body;
     console.log(login);
