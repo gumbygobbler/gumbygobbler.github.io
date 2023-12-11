@@ -5,12 +5,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 app.use(cors());
+app.use(express.json());
+const bcrypt = require('bcrypt')
 const uri = "mongodb+srv://devAccess:cantLoseThisAgain@clustersdge.td7vftc.mongodb.net/?retryWrites=true&w=majority";
 
-const client = new MongoClient(uri);
+let client = new MongoClient(uri);
+let currentUser = 0;
 let userID = "203";
 const homes = client.db("Homes");
-//will eventually need to read things from loginServer once this or that is ported to other
 
 const minInDay = 96;
 const dayInMonth = [-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 30]
@@ -129,6 +131,30 @@ function getMonthlyPeaks(dataArray) {
   return holdingArray;
 }
 
+//inserts a new user
+async function insertUser(userData) {
+  try {
+    await client.connect();
+    allUsers = homes.collection("Users")
+    await allUsers.insertOne(userData)
+    console.log("successful insert")
+  } finally {
+    await client.close();
+  }
+}
+
+//queries all users
+async function queryLogin() {
+  try {
+    await client.connect();
+    allUsers = homes.collection("Users")
+    let result = await allUsers.find().toArray();
+    return result;
+  } finally {
+    await client.close();
+  }
+}
+
 //queries entire data of user from their id
 async function queryUser(userID) {
   try {
@@ -213,10 +239,6 @@ function makeDataPackage(appliance) {
   return ([dailyData, dailyAverages, dailyPeaks, weeklyAverages, weeklyPeaks, monthlyAverages, monthlyPeaks, monthlyData]);
 }
 
-function makeDataPackage2(appliance) {
-
-}
-
 //extracts data from the document sent by Mongodb into a more usable form
 function parseData(dbdoc, applianceIndex) {
   let applianceValues = []
@@ -240,30 +262,23 @@ function getName(dbdoc) {
 //runs the top level program
 async function main() {   
   
-  let rawData = await queryUser(userID).catch(console.dir);
+  app.get('/data', async (req, res) => {
+  
+    let rawData = await queryUser("203").catch(console.dir);
+    let applianceTypes = getApplianceTypes(rawData);
+    let dataPackages = [];
+    let dates = getDates(rawData);
+    let times = getTimes(rawData);
+    let username = getName(rawData);
+  
+  
+    for (let i = 0; i < applianceTypes.length; ++i) {
+      let applianceValues = parseData(rawData, i + 3);
+      let dataPackage = makeDataPackage(applianceValues);
+      dataPackages.push(dataPackage);
+    }
 
-  
-  let applianceTypes = getApplianceTypes(rawData);
-  let dataPackages = [];
-  let savingsData = [];
-  let dates = getDates(rawData);
-  let times = getTimes(rawData);
-  let username = getName(rawData);
-  
-  
-  for (let i = 0; i < applianceTypes.length; ++i) {
-  
-    let applianceValues = parseData(rawData, i + 3);
-    let dataPackage = makeDataPackage(applianceValues);
-    let monthData = getMonthOfData(applianceValues);
-    dataPackages.push(dataPackage);
-    savingsData.push(monthData);
-  }
-
-  console.log("data compiled")
-  
-  app.get('/data', function(req, res) {
-  
+    console.log("data compiled")
     res.send([username, applianceTypes, dates, times, dataPackages])
     //at this point, data sent is like this:
     //[name, [appliance types], [dates], [times], [data Packages]]
@@ -276,11 +291,55 @@ async function main() {
     // to access 1 specific data point: [1][i][j][k]
   });
   
-  app.post('/', function(req, res) {
-    const login = req.body;
-    console.log(login);
-    res.status(200).send({status : 'recieved'});
+  app.get('/users', async (req, res) => {
+    const users = await queryLogin().catch(console.dir);
+    res.json(users)
   })
+
+  app.post('/users', async (req, res) => {
+    
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const user = { firstname: req.body.firstname, 
+                        lastname: req.body.lastname,
+                        email:    req.body.email,
+                        password: hashedPassword,
+                        dataid:   Math.floor(Math.random() * 2000) }
+        insertUser(user);
+        //create new collection
+        res.status(201).send()
+    }
+    catch {
+        res.status(500).send()
+    }
+  })
+
+  app.post('/users/login', async (req, res) => {
+    const users = await queryLogin().catch(console.dir);
+    const user = users.find(user => user.email == req.body.email)
+    if (user == null) {
+        return res.status(400).send("Cannot find user")
+    }
+    try {
+        if (await bcrypt.compare(req.body.password, user.password)) {
+            res.send("Success " + user)
+            currentUser = user;
+        }
+        else {
+          console.log(req.body.password + " " + user.password)
+            res.send("Not allowed")
+        }
+    }
+    catch {
+        res.status(500).send()
+    }
+  })
+
+  app.get('/users/logout', async (req, res) => {
+    currentUser = 0;
+    res.send("Successfully logged out. " + currentUser)
+  })
+
   console.log("listening on port 8000");
   app.listen(PORT);
 

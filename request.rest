@@ -1,0 +1,23 @@
+GET http://localhost:8000/users
+
+###
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+    "firstname": "Uncle",
+    "lastname": "Ruckus",
+    "email": "PraiseWhiteGod@clownpenis.fart",
+    "password": "password"
+}
+###
+POST http://localhost:8000/users/login
+Content-Type: application/json
+
+{
+    "email": "PraiseWhiteGod@clownpenis.fart",
+    "password": "password"
+}
+
+###
+GET http://localhost:8000/users/logout

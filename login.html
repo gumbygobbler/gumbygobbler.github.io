@@ -23,14 +23,6 @@
             </h1>
         </header>
     
-        <div class = "navigation">
-            <div><a href="https://www.sdsuproject.com">Home</a></div>
-            <div><a href="https://www.sdsuproject.com/SDGEusage">Energy Usage</a></div>
-            <div><a href="https://www.sdsuproject.com/itemcontrols">Items Controls</a></div>
-            <div><a href="https://www.sdsuproject.com/Savings">Savings</a></div>
-            <div><a href="https://www.sdsuproject.com/UserStats">User Stats</a></div>
-        </div>
-    
         <div class="container-sm mt-5" id="loginbox2">
             <a href="http://www.sdsuproject.com"><image id="loginlogo2" src="SDG&E_Project/sdgelogo1.jpg" alt="SDG&E Logo"></image></a>
             <br>
@@ -38,9 +30,9 @@
             
             <form>
                 <div style="padding-bottom: 30px;">
-                    <label for="username" style="padding-bottom: 20px;">username</label>
+                    <label for="username" style="padding-bottom: 20px;">email</label>
                     <input type="text" class="form-control" id="username" name="username"
-                    placeholder="username">
+                    placeholder="email">
 
                 </div>
                 <div style="padding-bottom: 20px;">
@@ -58,7 +50,10 @@
                 </div>
             </form>
             <br>
-            <div>
+            <p>
+                New User? <a style="display: inline; color: rgb(26, 107, 161)" href="https://www.sdsuproject.com/registration">Sign Up Now!</a>
+            </p>
+            <!-- <div>
                   <audio id="audio" src="SDG&E_Project/bruh.mp3" preload="auto"></audio>
                 <script>
                     var snd = new Audio("SDG&E_Project/bruh.mp3");
@@ -68,13 +63,19 @@
                 </script>
                 <button onclick="playSound()">Forgot your username/password?</button>
                 <br>
-        </div>
+            </div> -->
 
         <div>
             <span id="login_failed" style="color: red; text-align: center; font: 30px; padding-top: 30px;"></span>
         </div>
+
+        <script src="./src/loginApp.js"></script>
     </body>
-    <script type="text/javascript">
+    
+    
+    
+    
+    <!-- <script type="text/javascript">
         var login_success = false;  /* set this to true if the login was a success */
         
         if(login_success == false)
@@ -85,7 +86,7 @@
         {
             window.location = "http://www.sdsuproject.com//login_success.html"; 
         }
-        </script>
+        </script> -->
     <!--
     <script>
         const user = this.Student.find(student => student.email === emailInput && student.password === passInput);
