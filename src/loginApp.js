@@ -2,10 +2,7 @@ async function login() {
     
     let email = document.getElementById("username").value;
     let password = document.getElementById("pass").value;
-    document.getElementById('form').addEventListener('submit', function(event) {
 
-        event.preventDefault();
-    })
     const data = {
         email: email,
         password: password
