@@ -34,69 +34,42 @@
     <div> 
         <div class = "title" >
             <h3 >SAVINGS</h3>
-            <br>
-            <p id="savingsDynamicText"></p>
+            <h5 id="savingsText"></h5>
         </div>
     </div>
 
     <div class="info">
        
             <div style= " width: 90%; border-radius: 10px; ">
-                <div class="generalInfo" id="topBox">what does this look like</div>
+                <div class="generalInfo" >
+                    <div style="border-bottom: solid ; width: 80%; padding: 10px 0px; margin: 0px 10%;">
+                    General Cost Analytics</div>
+                    <p id="topBox">what does this look like<p>
+                </div> 
+                 
+            <div> 
                 <div class="row">
                     <div class="column">
                         <div style="border-bottom: solid ; width: 80%; padding: 10px 0px; margin: 0px 10%;">
-                           Appliances Ranked by Power Consumption</div> 
-                        <div>
-                            <ol>
-                                <li>Item 1: 50 Watts per week</li>
-                                <li>Item 2: 50 Watts per week</li>
-                                <li>Item 3: 50 Watts per week</li>
-                                <li>Item 4: 50 Watts per week</li>
-                                <li>Item 5: 50 Watts per week</li>
-                                <li>Item 6: 50 Watts per week</li>
-                                <li>Item 7: 50 Watts per week</li>
-                                <li>Item 8: 50 Watts per week</li>
-                                <li>Item 9: 50 Watts per week</li>
+                           Appliances Ranked by Weekly Power Consumption</div> 
+                        <div >
+                            <ol id="Ranking" style="text-align: left;">
                             </ol>
                         </div>
                     </div>
-                    <div class="column">
-                        <div style="border-bottom: solid ; width: 80%; padding: 10px 0px; margin: 0px 10%;">
-                           Appliances Ranked by Cost</div> 
-                        <div>
-                            <ol>
-                                <li>Item 1: $$ dollars per week</li>
-                                <li>Item 2: $$ dollars per week</li>
-                                <li>Item 3: $$ dollars per week</li>
-                                <li>Item 4: $$ dollars per week</li>
-                                <li>Item 5: $$ dollars per week</li>
-                                <li>Item 6: $$ dollars per week</li>
-                                <li>Item 7: $$ dollars per week</li>
-                                <li>Item 8: $$ dollars per week</li>
-                                <li>Item 9: $$ dollars per week</li>
-            
-                            </ol>
-                        </div>
-                    </div>
-                </div>
+                    
                 
-                <div class="generalInfo" id="bottomBox">
-                    <ul>
-                        <li>Use this appliance during ... hours</li>
-                        <li>Use this appliance during ... hours</li>
-                        <li>Use this appliance during ... hours</li>
-                        <li>Use this appliance during ... hours</li>
-                        <li>Use this appliance during ... hours</li>
-                        <li>Use this appliance during ... hours</li>
-                        <li>Use this appliance during ... hours</li>
-                        <li>Use this appliance during ... hours</li>
-    
+                <div class="generalInfo">
+                    <div id="bottomBox" style="border-bottom: solid ; width: 80%; padding: 10px 0px; margin: 0px 10%; text-align: left;">
+                        Appliances Ranked by Weekly Power Consumption</div> 
+                    <ul id="bottomList">
                     </ul>
                 </div>
             </div>
         </div> 
     </div>
+
+
     <script src="./src/savingsApp.js"></script>
 
     

@@ -1,3 +1,4 @@
+
 const firstBox = document.getElementById('firstbox'); // need to see if this is still necessary
 const firstnameIndex = 2;
 //let timeData = Array.from(Array(365).keys());
