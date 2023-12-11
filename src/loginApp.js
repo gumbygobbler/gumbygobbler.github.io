@@ -1,26 +1,29 @@
-const userInfo = document.getElementById('username');
-const passInfo = document.getElementById('pass');
-const loginBox = document.getElementById('loginbox');
+async function login() {
+    
+    let email = document.getElementById("username").value;
+    let password = document.getElementById("pass").value;
+    document.getElementById('form').addEventListener('submit', function(event) {
 
-async function login(e) {
-    e.preventDefault();
-    const username = userInfo.value;
-    const password = passInfo.value;
-
-    try {
-        const res = await fetch('http://localhost:8000/', {
-            method: 'POST',
-            headers: { "Content_Type": 'application/json'},
-            body: JSON.stringify({username, password})
-        })
-        .then(response => response.json())
-        .then(console.log(wentThrough))
-
-
+        event.preventDefault();
+    })
+    const data = {
+        email: email,
+        password: password
     }
-    catch(err) {
-        console.log('whoops');
+    console.log(data)
+    const response = await fetch("http://localhost:8000/users/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+    })
+    console.log(response)
+
+    if (response.status == 200) {
+        window.location.href = "https://www.sdsuproject.com/UserStats"
+    }
+    else {
+        (alert("Incorrect email or password"))
     }
 }
-
-loginBox.addEventListener('submit', login(), false);

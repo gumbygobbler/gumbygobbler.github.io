@@ -287,6 +287,10 @@ function editPage(applianceType, data, currentDate, username) {
 
 }
     
+async function logout() {
+    fetch('http://localhost:8000/users/logout')
+    .then(() => window.location.href = "https://www.sdsuproject.com")
+}
 
 fetch("http://localhost:8000/data")
 .then(response => response.json())
@@ -300,5 +304,7 @@ fetch("http://localhost:8000/data")
     })
     .then(itemOfInterest => {
         console.log("does it ever enter here")
+        document.getElementById("bufferWheel").style.display = "none";
+        document.getElementsByClassName("info")[0].style.display = "flex";
         editPage(applianceType, dataPackages, dates[dates.length - 1], username);
 })

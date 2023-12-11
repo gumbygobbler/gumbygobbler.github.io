@@ -182,6 +182,12 @@ function readableName(dataName) { //weird issues with how theyre named in mongod
     return readableNames[i];
 }
 
+async function logout() {
+    fetch('http://localhost:8000/users/logout')
+    .then(() => window.location.href = "https://www.sdsuproject.com")
+    
+}
+
 fetch('http://localhost:8000/data')
     .then(response => response.json())
     .then(data => {
@@ -195,6 +201,7 @@ fetch('http://localhost:8000/data')
     .then(itemOfInterest => {
         
         document.getElementById("userName").innerHTML = "Welcome, " + username;
+        document.getElementById("bufferWheel").style.display = "none"
         
         for (let i = 0; i < (applianceType.length) - 2; ++i) {
             let chart = createNewChart(i, 'firstbox', times, dataPackages[i][0].slice(dataPackages[i][0].length - 96), readableName(applianceType[i]), "Usage today")
@@ -202,17 +209,4 @@ fetch('http://localhost:8000/data')
             document.getElementById("select" + i).onchange = function(){changeChartValues(chart, i, dates, times, dataPackages, readableName(applianceType[i]));};
             console.log("just accessed select" + i);
         }
-        //document.getElementById('firstbox').style.height = '100px';
-
     })
-
-    
-
-    //TODO:
-    //probably finish savings today too, so tomorrow is clear for login/registration
-    //need to change ALL ROUTING cuz this shit sucks lol, theyre sent to links but links are old files
-    //WEB DEPLOYMENT IS A MUST
-    //Finish all of user auth, includes reading and writing data to db, 
-    //also need to figure out rendering because its weird how its currently working
-
-    //WEEKEND: api??? figure out how to send python data to ports

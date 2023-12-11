@@ -265,7 +265,7 @@ async function main() {
   
   app.get('/data', async (req, res) => {
   
-    let rawData = await queryUser("203").catch(console.dir);
+    let rawData = await queryUser(currentUser.dataid).catch(console.dir);
     let applianceTypes = getApplianceTypes(rawData);
     let dataPackages = [];
     let dates = getDates(rawData);
@@ -307,7 +307,11 @@ async function main() {
                         password: hashedPassword,
                         dataid:   Math.floor(Math.random() * 2000) }
         insertUser(user);
-        //create new collection
+        // await client.connect();
+        // homes.createCollection((user.dataid).toString());
+        // await client.close();
+        currentUser = user;
+
         res.status(201).send()
     }
     catch {
@@ -323,12 +327,11 @@ async function main() {
     }
     try {
         if (await bcrypt.compare(req.body.password, user.password)) {
-            res.send("Success " + user)
+            res.status(200).send("Success")
             currentUser = user;
         }
         else {
-          console.log(req.body.password + " " + user.password)
-            res.send("Not allowed")
+            res.status(201).send("Not allowed")
         }
     }
     catch {
@@ -338,7 +341,7 @@ async function main() {
 
   app.get('/users/logout', async (req, res) => {
     currentUser = 0;
-    res.send("Successfully logged out. " + currentUser)
+    res.send("Successfully logged out.")
   })
 
   console.log("listening on port 8000");

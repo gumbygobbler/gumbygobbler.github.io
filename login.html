@@ -28,7 +28,7 @@
             <br>
             <h3 style="color: rgb(17, 58, 94); text-align: center; padding-bottom: 20px;">Login to your SDG&E Account</h3>
             
-            <form>
+            <form id="form" onsubmit="login()">
                 <div style="padding-bottom: 30px;">
                     <label for="username" style="padding-bottom: 20px;">email</label>
                     <input type="text" class="form-control" id="username" name="username"
@@ -53,6 +53,7 @@
             <p>
                 New User? <a style="display: inline; color: rgb(26, 107, 161)" href="https://www.sdsuproject.com/registration">Sign Up Now!</a>
             </p>
+            <button onclick="login()">test</button>
             <!-- <div>
                   <audio id="audio" src="SDG&E_Project/bruh.mp3" preload="auto"></audio>
                 <script>
@@ -70,9 +71,11 @@
         </div>
 
         <script src="./src/loginApp.js"></script>
+        <!-- <script> var form = document.getElementById("form");
+            function handleForm(event) { event.preventDefault(); } 
+            form.addEventListener('submit', handleForm);</script>
     </body>
-    
-    
+     -->
     
     
     <!-- <script type="text/javascript">
