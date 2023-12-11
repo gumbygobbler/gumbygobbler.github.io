@@ -299,5 +299,6 @@ fetch("http://localhost:8000/data")
         dataPackages = data[4];
     })
     .then(itemOfInterest => {
-        editPage(applianceType, dataPackages, dates[dates.length - 1], username)
+        console.log("does it ever enter here")
+        editPage(applianceType, dataPackages, dates[dates.length - 1], username);
 })
