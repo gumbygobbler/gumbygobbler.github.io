@@ -158,6 +158,7 @@ async function queryLogin() {
 //queries entire data of user from their id
 async function queryUser(userID) {
   try {
+    await client.connect();
       specUser = homes.collection(userID);
       let result = await specUser.find().toArray();
       return result;
